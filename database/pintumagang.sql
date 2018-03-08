@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2018 at 07:50 AM
--- Server version: 10.1.25-MariaDB
--- PHP Version: 5.6.31
+-- Generation Time: Mar 08, 2018 at 10:59 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -34,13 +34,6 @@ CREATE TABLE `admin` (
   `nama` varchar(25) NOT NULL,
   `email` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `admin`
---
-
-INSERT INTO `admin` (`id_admin`, `id_user`, `nama`, `email`) VALUES
-(1, 2, 'kamal', 'kamaludinakbar0@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -602,18 +595,11 @@ CREATE TABLE `mahasiswa` (
   `id_user` int(100) NOT NULL,
   `nama_depan` varchar(25) NOT NULL,
   `nama_belakang` varchar(30) DEFAULT NULL,
-  `perguruan_tinggi` varchar(25) DEFAULT NULL,
+  `perguruan_tinggi` varchar(100) DEFAULT NULL,
   `email` varchar(25) NOT NULL,
   `cv` varchar(25) DEFAULT NULL,
   `hp` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `mahasiswa`
---
-
-INSERT INTO `mahasiswa` (`id_mhs`, `id_user`, `nama_depan`, `nama_belakang`, `perguruan_tinggi`, `email`, `cv`, `hp`) VALUES
-(3, 8, 'ayam', NULL, NULL, 'AYAM@.COM', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -719,19 +705,19 @@ INSERT INTO `provinsi` (`id_provinsi`, `nama_provinsi`) VALUES
 CREATE TABLE `user` (
   `id_user` int(100) NOT NULL,
   `username` varchar(25) NOT NULL,
-  `password` varchar(25) NOT NULL,
-  `last_login` timestamp(6) NULL DEFAULT NULL
+  `password` varchar(32) NOT NULL,
+  `email_user` varchar(50) NOT NULL,
+  `Status` varchar(1) NOT NULL,
+  `last_login` timestamp(6) NULL DEFAULT CURRENT_TIMESTAMP(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `username`, `password`, `last_login`) VALUES
-(2, 'kamal', 'aa63b0d5d950361c05012235a', '2018-02-27 09:23:24.000000'),
-(3, 'aaa', '47bce5c74f589f4867dbd57e9', NULL),
-(4, 'aaa', '47bce5c74f589f4867dbd57e9', NULL),
-(8, 'ayam', 'bffa783a022fe2d98692014dd', NULL);
+INSERT INTO `user` (`id_user`, `username`, `password`, `email_user`, `Status`, `last_login`) VALUES
+(16, 'sulos', '82b34daa446694d76885ddcd573f02b0', 'sulos@gmail.com', 'A', '2018-03-07 04:43:01.000000'),
+(17, 'gisel', '0983d8c82bc2adab72a528d1b4a3577e', 'gisellak@gmail.com', 'P', '2018-03-07 04:47:57.000000');
 
 --
 -- Indexes for dumped tables
@@ -789,27 +775,32 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_admin` int(100) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `lowongan`
 --
 ALTER TABLE `lowongan`
   MODIFY `id_lowongan` int(100) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id_mhs` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_mhs` int(100) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `pelamar`
 --
 ALTER TABLE `pelamar`
   MODIFY `id_pelamar` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_user` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
 --
 -- Constraints for dumped tables
 --
