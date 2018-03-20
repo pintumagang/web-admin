@@ -1,0 +1,137 @@
+body{
+	margin: 0;
+	padding: 0;
+	background-color: #F2F2F2; 
+	font-family: arial narrow;
+	background :url(bg.jpg);
+	background-size: cover;
+}
+
+.title{
+	background-color: #3399FF;
+	width: 100%;
+	height:15%;
+	margin-top: 100px;
+	padding: 0;
+	color: white;
+	font-size: 200%;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 250%;
+}
+
+.text {
+	text-align: center;
+	vertical-align: middle;
+	line-height: 450%;
+	padding: 50px 0 20px;
+	margin-left: 29%;
+	padding: 0;
+	font-family: arial narrow;
+
+}
+
+.input{
+	height: 30px;
+	width: 90%;
+	margin-left: 4.5%;
+	margin-top: 10%;
+	padding: 0;
+	color: #262626;
+	font-size: 100%;
+	text-align: left;
+	border-top:none;
+	border-left: none;
+	border-right: none;
+	border-color:#AAAAAA;	
+}
+
+.input:hover{
+	border-top:none;
+	border-left: none;
+	border-right: none;
+}
+
+#button {
+	border: none;
+
+	margin-left: 10%;
+	margin-top: 10%;
+	margin-bottom: 10%;
+    background-color: #3399FF;
+
+    color:white;
+    font-size :100%;
+    text-align : center;
+    position: relative;
+    vertical-align: middle;
+    line-height: 250%;
+    font-family : Arial Narrow;
+    
+    height: 7%;
+    width: 80%;
+}
+
+
+.deskripsi{
+	background-color: none;
+	color: white;
+	height: 200%
+	width: 400%;
+	margin-left: 10%;
+	margin-top: 0%;
+	margin-bottom: 30%;
+}
+.deskripsi h1{
+	font-size: 40px;
+}
+.deskripsi p{
+	font-size: 20px;
+}
+
+footer{
+	font-size: 25px;
+}
+
+
+#button:hover{
+ 	cursor: pointer;
+ 	box-shadow: 0 1.5px 4px rgba(0,0,0,.5);
+ }
+
+#forgotpass{
+	text-align: center;
+	color: #636D4B;
+	font-style: none;
+}
+
+#forgotpass:hover{
+	cursor: pointer;
+	color: blue;
+}
+
+.container{
+	background-color: white;
+	width: 350px;
+	height: 450px;
+	position: relative;
+	margin-top: 100px;
+	margin : auto;
+	box-shadow: 0 7.5px 20px rgba(0,0,0,.5);
+}
+
+#gagallogin{
+	margin : auto;
+	text-align: center;
+	color: red;
+	font-style: none;
+}
+
+.checkboxRemember{
+	margin: center; 
+	align-content: center;
+}
+
+.label-checkbox {
+
+}
