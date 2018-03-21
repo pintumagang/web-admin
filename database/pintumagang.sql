@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 08, 2018 at 10:59 PM
+-- Generation Time: Mar 21, 2018 at 03:38 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -596,7 +596,6 @@ CREATE TABLE `mahasiswa` (
   `nama_depan` varchar(25) NOT NULL,
   `nama_belakang` varchar(30) DEFAULT NULL,
   `perguruan_tinggi` varchar(100) DEFAULT NULL,
-  `email` varchar(25) NOT NULL,
   `cv` varchar(25) DEFAULT NULL,
   `hp` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -707,7 +706,7 @@ CREATE TABLE `user` (
   `username` varchar(25) NOT NULL,
   `password` varchar(32) NOT NULL,
   `email_user` varchar(50) NOT NULL,
-  `Status` varchar(1) NOT NULL,
+  `status` varchar(1) NOT NULL,
   `last_login` timestamp(6) NULL DEFAULT CURRENT_TIMESTAMP(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -715,7 +714,7 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `username`, `password`, `email_user`, `Status`, `last_login`) VALUES
+INSERT INTO `user` (`id_user`, `username`, `password`, `email_user`, `status`, `last_login`) VALUES
 (16, 'sulos', '82b34daa446694d76885ddcd573f02b0', 'sulos@gmail.com', 'A', '2018-03-07 04:43:01.000000'),
 (17, 'gisel', '0983d8c82bc2adab72a528d1b4a3577e', 'gisellak@gmail.com', 'P', '2018-03-07 04:47:57.000000');
 
