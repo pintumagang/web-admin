@@ -23,7 +23,7 @@ class User extends CI_Controller {
 
 				// session
 				$_SESSION['user'] = $user;
-				$this->load->view('Admin_Home');
+				redirect('/Admin/beranda', 'refresh');
 
 			} else if ($cek['status']== 'P') {
 
@@ -49,3 +49,5 @@ class User extends CI_Controller {
 
 	}
 }
+
+
