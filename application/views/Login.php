@@ -44,11 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						Log in
 					</span>
 
-<<<<<<< HEAD
 					<div class="gagallogin"><?php echo $this->session->flashdata('error')?></div>	
-=======
-					<div class="gagallogin"><!--<?php echo $this->session->flashdata('error') ?> --></div>	
->>>>>>> bfa798eab432fc1daa48888d138c32506081f6c7
 
 					<br><div class="wrap-input100 validate-input" data-validate = "Enter username">
 						<input class="input100" type="text" name="username" placeholder="Username">
@@ -68,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" name="login">
+						<button class="login100-form-btn">
 							Login
 						</button>
 					</div>
