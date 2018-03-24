@@ -19,8 +19,14 @@
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                <li><a href="" target="_blank"><i class="fa fa-user"></i>Sulaiman osman</a></li>
-                <li><a href=""><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
+                <li><a href="" target="_blank"><i class="fa fa-user"></i><?php echo $_SESSION['user'];?></a></li>
+                <li>
+                  <form action="<?php echo site_url ('User/logout') ?>" method="POST">
+                      <button class="glyphicon glyphicon-log-out">logout</button>
+                  </form>
+                  
+
+                </li>
                 </ul>
           </div>  
       </nav>
