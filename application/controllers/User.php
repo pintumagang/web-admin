@@ -9,10 +9,14 @@ class User extends CI_Controller {
 
 	public function Login(){
 
-		$this->load->model('Model_Login');
-		$user = $this->input->post('username',true);
-		$pass = $this->input->post('pass',true);
-		$cek  = $this->Model_Login->prosesLogin($user,$pass);
+			// cek dulu kalo ada session atau enggk
+
+		if ($this->session->userdata('user') == FALSE) {
+
+			$this->load->model('Model_Login');
+			$user = $this->input->post('username',true);
+			$pass = $this->input->post('pass',true);
+			$cek  = $this->Model_Login->prosesLogin($user,$pass);
 			if($cek['status']== 'A'){
 
 
@@ -22,6 +26,7 @@ class User extends CI_Controller {
 				}
 
 				// session
+				session_start();
 				$_SESSION['user'] = $user;
 				redirect('/Admin/beranda', 'refresh');
 
@@ -39,13 +44,29 @@ class User extends CI_Controller {
 			} else {
 			$this->session->set_flashdata('error','Username atau password salah!');
 			$this->load->view('Login');
+			}
+		}else{
+
+			redirect('/Admin/beranda', 'refresh');
 		}
+
+		
 			}
 	
 
 	public function Logout(){
-		session_destroy();
-		$this->load->view('Login');
+
+		if (isset($_POST['logout'])) {
+			$this->session->unset_userdata('user');
+			$this->session->sess_destroy();
+			$this->load->view('Login');
+			
+		}else if ($this->session->userdata('user') != FALSE){
+
+			redirect('/Admin/beranda', 'refresh');
+		}
+
+		
 
 	}
 }
