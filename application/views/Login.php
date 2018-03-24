@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="container-login100" style="background-image: url('<?=base_url();?>assets/images/bg-01.jpg');">
 			<div class="wrap-login100">
 
-				<form class="login100-form validate-form" action="<?php echo site_url ('User/login') ?>" method="POST">
+				<form class="login100-form validate-form" action="<?php echo site_url ('User/login') ?>?module=Beranda" method="POST">
 					<span class="login100-form-logo">
 						<i class="zmdi zmdi-landscape"></i>
 					</span>
@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						Log in
 					</span>
 
-					<div class="gagallogin"><?php echo $this->session->flashdata('error') ?></div>	
+					<div class="gagallogin"><?php echo $this->session->flashdata('error')?></div>	
 
 					<br><div class="wrap-input100 validate-input" data-validate = "Enter username">
 						<input class="input100" type="text" name="username" placeholder="Username">

@@ -1,8 +1,11 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <!DOCTYPE html>
 <html>
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link href="<?=base_url();?>assets/css/Admin_Home_Navbar.css" rel="stylesheet" />
+	<link href="<?=base_url();?>assets/css/CSS_Admin_Home.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -17,10 +20,10 @@
               <span class="icon-bar"></span> 
             </button>
           </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
+          <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                <li><a href="" target="_blank"><i class="fa fa-user"></i>Sulaiman osman</a></li>
-                <li><a href=""><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
+                <li><a href="" target="_blank"><i class=""></i><?php echo $this->session->userdata('loger') ?></a></li>
+                <li><a href="<?php echo site_url('User/logout') ?>"><i class="glyphicon glyphicon-log-out"></i>Logout</a></li>
                 </ul>
           </div>  
       </nav>
@@ -28,40 +31,17 @@
   <div class="container content">
     <div class="row div">
       <div class="col-md-3">
-      <div class="list-group">
-        <a href="" class="list-group-item active"><i class="fa fa-home tab10" aria-hidden="true"></i> Beranda</a>
-        <a href="" class="list-group-item "><i class="fa fa-plus-circle tab10" aria-hidden="true"></i> Admin </a>
-        <a href="" class="list-group-item "><i class="fa fa-file-o tab10" aria-hidden="true"></i> Mahasiswa</a>
-        <a href="" class="list-group-item "><i class="fa fa-file-text-o tab10" aria-hidden="true"></i> Perusahaan</a>
+        <div class="content">
+
+        <?php include 'Admin_Navbar.php'; ?>
         
       </div>
       </div>
       <div class="col-md-9">
-      <div>
-       <div class="row">
-      
-            <div class="col-xs-6 col-md-3 productbox">
-              <a href="#" class="thumbnail clearfix">
-                <img src="<?php echo base_url('assets\images\icons\admin.png'); ?>" width="120px" height="80px" class="img-responsive">
-                <div class="producttitle">Admin</div>
-              </a>
-            </div>
+      <div class="content">
+    
+        <?php include 'content.php'; ?>
 
-            <div class="col-xs-6 col-md-3 productbox">
-              <a href="#" class="thumbnail clearfix">
-                <img src="<?php echo base_url('assets\images\icons\mahasiswa.png'); ?>" width="120px" height="80px" class="img-responsive">
-                <div class="producttitle">Mahasiswa</div>
-              </a>
-            </div>
-
-            <div class="col-xs-6 col-md-3 productbox">
-              <a href="#" class="thumbnail clearfix">
-                <img src="<?php echo base_url('assets\images\icons\company.png'); ?>" width="120px" height="80px" class="img-responsive">
-                <div class="producttitle">Perusahaan</div>
-              </a>
-            </div> 
-
-       </div>
       </div>
       </div>
     </div>
