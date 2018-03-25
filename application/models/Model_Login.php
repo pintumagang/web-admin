@@ -9,6 +9,7 @@ class Model_Login extends CI_Model {
 		return $this->db->get('user')->row_array();
 	}
 
+
 	/*public function Set_id($user_name){
 		$this->db->where('username',$user_name);
 		$this->db->where('id_user',$id_user);
