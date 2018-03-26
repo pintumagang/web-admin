@@ -14,6 +14,7 @@ if($mod=='Beranda'){
 } elseif($mod='Lowongan') {
 	include "Admin_Lowongan.php";	
 }
-
+} else {
+	include "Admin_Beranda.php";
 }
 ?>

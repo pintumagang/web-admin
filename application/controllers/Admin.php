@@ -10,6 +10,9 @@ class Admin extends CI_Controller {
 		$this->load->model('Model_Admin');
 	}
 
+
+
+
 	public function TampilkanDataMahasiswa()
 	{
 		$this->load->view('Admin_Home');

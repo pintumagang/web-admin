@@ -38,8 +38,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </button>
           </div>
           <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                <li><a href="" target="_blank" style="color:white;"><i class=""></i><?php echo $this->session->userdata('loger')?></a></li>
+                <ul class="nav navbar-nav navbar-right">  
+                <li><a href="" target="_blank" style="color:white;"><i class=""></i><?php echo $_SESSION['user'];?></a></li>
                 <li><a href="<?php echo site_url('User/logout') ?>" style="color:white;" ><i class="glyphicon glyphicon-log-out" style="color:white;"></i>Logout</a></li>
                 </ul>
           </div>  
