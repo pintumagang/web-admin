@@ -38,6 +38,10 @@ class Admin extends CI_Controller {
 	{
 		$this->load->view('Admin_Home');
 	}
+
+	public function EditDataAdmin(){
+		$this->load->view('Admin_Admin_formedit');
+	}
 }
 
 ?>

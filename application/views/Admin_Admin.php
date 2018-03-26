@@ -12,9 +12,7 @@
         <th>Email</th>
         <th>Username</th>
         <th>Last Login</th>
-        <th><button type="button" class="btn btn-default">
-        <i class="glyphicon glyphicon-plus"><a href="">Tambah</a></i>
-    </button></th>
+        <th>Action</th>
       </tr>
       </thead>
             <tbody>
@@ -33,7 +31,7 @@
         <td>
 
           <button type="button" class="btn btn-default">
-              <i class="glyphicon glyphicon-pencil"><a href="">Edit</a></i>
+              <i class="glyphicon glyphicon-pencil"><a href="<?php echo site_url('Admin/EditDataAdmin')?>?module=Mahasiswa">Edit</a></i>
           </button> 
           
           <button type="button" class="btn btn-default">

@@ -26,7 +26,7 @@ class User extends CI_Controller {
 				$select = $this->db->get_where('admin', array('id_user' => $cek['id_user']))->row();
 				$data = array('logged_in' => true ,
 							  'loger' => $select->nama);
-				$sql = "update user ";
+				$sql = "update user set last_login = ";
 
 				$_SESSION['user'] = $data['loger'];
 				$_SESSION['logged_in'] = $data['logged_in'];
