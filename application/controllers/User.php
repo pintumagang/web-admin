@@ -17,6 +17,7 @@ class User extends CI_Controller {
 				$select = $this->db->get_where('admin', array('id_user' => $cek['id_user']))->row();
 				$data = array('logged_in' => true ,
 							  'loger' => $select->nama);
+				$sql = "update user "
 				$this->session->set_userdata($data);
 				$this->load->view('Admin_Home');
 			} else if ($cek['status']== 'P') {

@@ -25,11 +25,11 @@
       ?>
 
       <tr>
-        <td><?php echo $no++ ?></td>
+        <td><?php echo $ad->id_admin ?></td>
         <td><?php echo $ad->nama;?></td>
         <td><?php echo $ad->email;?></td>
-        <td><?php echo 'sulos'?></td>
-        <td><?php echo 'Hari ini'?></td> 
+        <td><?php echo $ad->username?></td>
+        <td><?php echo $ad->last_login?></td> 
         <td>
 
           <button type="button" class="btn btn-default">
