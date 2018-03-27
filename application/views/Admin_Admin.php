@@ -31,7 +31,7 @@
         <td>
 
           <button type="button" class="btn btn-default">
-              <i class="glyphicon glyphicon-pencil"><a href="<?php echo site_url('Admin/EditDataAdmin')?>?module=Mahasiswa">Edit</a></i>
+              <i class="glyphicon glyphicon-pencil"><a href="<?php echo site_url('Admin/EditDataAdmin')?>?module=formadmin">Edit</a></i>
           </button> 
           
           <button type="button" class="btn btn-default">

@@ -13,6 +13,8 @@ if($mod=='Beranda'){
 	include "Admin_Perusahaan.php";	
 } elseif($mod='Lowongan') {
 	include "Admin_Lowongan.php";	
+} elseif($mod='formadmin'){
+	include "Admin_Admin_formedit.php";
 }
 } else {
 	include "Admin_Beranda.php";

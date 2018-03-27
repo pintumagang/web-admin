@@ -25,7 +25,7 @@ class Admin extends CI_Controller {
 
 	public function View_Admin()
 	{
-		$dataadmin['admin']		= $this->Model_Admin->tampiltableadmin()->result();
+		$dataadmin['admin']	= $this->Model_Admin->tampiltableadmin()->result();
 		$this->load->view('Admin_Home', $dataadmin);
 	} 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2018 at 03:38 AM
+-- Generation Time: Mar 27, 2018 at 09:12 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -34,6 +34,15 @@ CREATE TABLE `admin` (
   `nama` varchar(25) NOT NULL,
   `email` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id_admin`, `id_user`, `nama`, `email`) VALUES
+(1, 16, 'Sulaiman Osman', 'sulos@gmail.com'),
+(2, 17, 'gisel', 'gisel@gmail.com'),
+(3, 19, 'M.Kamaludin Akbar', 'Kamal@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -581,6 +590,7 @@ CREATE TABLE `lowongan` (
   `id_perusahaan` int(100) NOT NULL,
   `status` varchar(10) NOT NULL,
   `waktu_input` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `dateline_submit` date NOT NULL,
   `jenis_magang` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -705,18 +715,18 @@ CREATE TABLE `user` (
   `id_user` int(100) NOT NULL,
   `username` varchar(25) NOT NULL,
   `password` varchar(32) NOT NULL,
-  `email_user` varchar(50) NOT NULL,
   `status` varchar(1) NOT NULL,
-  `last_login` timestamp(6) NULL DEFAULT CURRENT_TIMESTAMP(6)
+  `last_login` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `username`, `password`, `email_user`, `status`, `last_login`) VALUES
-(16, 'sulos', '82b34daa446694d76885ddcd573f02b0', 'sulos@gmail.com', 'A', '2018-03-07 04:43:01.000000'),
-(17, 'gisel', '0983d8c82bc2adab72a528d1b4a3577e', 'gisellak@gmail.com', 'P', '2018-03-07 04:47:57.000000');
+INSERT INTO `user` (`id_user`, `username`, `password`, `status`, `last_login`) VALUES
+(16, 'sulos', '82b34daa446694d76885ddcd573f02b0', 'A', '2018-03-07 11:43:01'),
+(17, 'gisel', '0983d8c82bc2adab72a528d1b4a3577e', 'A', '2018-03-07 11:47:57'),
+(19, 'kamal', 'aa63b0d5d950361c05012235ab520512', 'A', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -774,7 +784,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_admin` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `lowongan`
@@ -798,7 +808,7 @@ ALTER TABLE `pelamar`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_user` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables
