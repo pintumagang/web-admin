@@ -5,7 +5,7 @@ class User extends CI_Controller {
 
 	public function index(){
 		if ($this->session->userdata('user') == FALSE && $this->session->userdata('logged_in') == FALSE ) {
-				$this->load->view('Login');	
+				$this->load->view('Login');
 		}else{
 			$this->load->view('Admin_Home');
 		}

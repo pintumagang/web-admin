@@ -71,9 +71,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					<div class="text-center p-t-90">
 						<a class="txt1" href="#">
-							Forgot Password?
+                            <h6>Lupa Password?</h6>
 						</a>
-					</div>
+                        <br>
+                        <a class="txt1" href="<?php echo site_url ('Perusahaan/register') ?>">
+                            <h6>Daftar?</h6>
+                        </a>
+                    </div>
 				</form>
 			</div>
 		</div>
