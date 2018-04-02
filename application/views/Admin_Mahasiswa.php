@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/Admin_Mahasiswa_Popup_create.css'); ?>">
 <div class="judul">
     <h3 align="center">Data User Mahasiswa</h3>
 </div>
@@ -13,8 +14,8 @@
         <th>Perguruan Tinggi</th>
         <th>No. Hp</th>
         <th>Alamat</th>
-        <th><button type="button" class="btn btn-default">
-        <i class="glyphicon glyphicon-plus"><a href="">Tambah</a></i>
+        <th><button onclick="document.getElementById('modal-wrapper').style.display='block'" type="button" class="btn btn-default Tambah">
+        <i class="glyphicon glyphicon-plus">Tambah</i>
     </button></th>
       </tr>
       </thead>
@@ -41,3 +42,41 @@
      
       </tbody>
     </table>
+
+<div id="modal-wrapper" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+        
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
+      <h3 style="text-align:center">Tambah Mahasiswa</h3>
+    </div>
+
+    <div class="container">
+      <input class="form-create" type="text" placeholder="Enter Username" name="uname"><br>
+      <input class="form-create" type="text" placeholder="Enter Username" name="uname"><br>
+      <input class="form-create" type="text" placeholder="Enter Username" name="uname"><br>
+      <input class="form-create" type="text" placeholder="Enter Username" name="uname"><br>
+      <input class="form-create" type="text" placeholder="Enter Username" name="uname"><br>
+      <input class="form-create" type="password" placeholder="Enter Password" name="psw"></input><br>
+      <button class="form-button" type="submit">Login</button>
+      <input class="form-create" type="checkbox" style="margin:26px 30px;"> Remember me      
+      <a href="#" style="text-decoration:none; float:right; margin-right:34px; margin-top:26px;">Forgot Password ?</a>
+    </div>
+    
+  </form>
+  
+</div>
+
+<script>
+// If user clicks anywhere outside of the modal, Modal will close
+
+var modal = document.getElementById('modal-wrapper');
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+</script>

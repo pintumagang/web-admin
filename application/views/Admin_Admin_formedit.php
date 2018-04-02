@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <form action="<?php echo site_url('welcome/insertsk')?>" method="POST" >
 
        <div class="form-group">
