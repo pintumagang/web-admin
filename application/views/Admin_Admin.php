@@ -25,7 +25,7 @@
       <tr>
         <td><?php echo $ad->id_admin ?></td>
         <td><?php echo $ad->nama;?></td>
-        <td><?php echo $ad->email;?></td>
+        <td><?php echo $ad->email_user;?></td>
         <td><?php echo $ad->username?></td>
         <td><?php echo $ad->last_login?></td> 
         <td>

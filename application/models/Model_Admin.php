@@ -4,7 +4,7 @@ class Model_Admin extends CI_Model {
 
 		public function tampiltableadmin(){
 			$this->db->order_by("id_admin","desc");
-			$sql = "select a.id_user, a.id_admin, a.nama, a.email, b.username, b.last_login from admin a, user b where a.id_user = b.id_user";
+			$sql = "select a.id_user, a.id_admin, a.nama, b.email_user, b.username, b.last_login from admin a, user b where a.id_user = b.id_user";
 			return $this->db->query($sql);
 		}
 

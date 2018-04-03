@@ -44,14 +44,15 @@
     </table>
 
 <div id="modal-wrapper" class="modal">
-  
+
   <form class="modal-content animate" action="/action_page.php">
         
     <div class="imgcontainer">
       <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
       <h3 style="text-align:center">Tambah Mahasiswa</h3>
     </div>
-
+    <div class="row">
+      <div class="col-md-2">
     <div class="container">
       <input class="form-create" type="text" placeholder="Enter Username" name="uname"><br>
       <input class="form-create" type="text" placeholder="Enter Username" name="uname"><br>
@@ -59,11 +60,15 @@
       <input class="form-create" type="text" placeholder="Enter Username" name="uname"><br>
       <input class="form-create" type="text" placeholder="Enter Username" name="uname"><br>
       <input class="form-create" type="password" placeholder="Enter Password" name="psw"></input><br>
-      <button class="form-button" type="submit">Login</button>
-      <input class="form-create" type="checkbox" style="margin:26px 30px;"> Remember me      
-      <a href="#" style="text-decoration:none; float:right; margin-right:34px; margin-top:26px;">Forgot Password ?</a>
+      <button id="btn2" class="form-button" type="submit">Batalkan</button>
+      <button id="btn1" class="form-button" type="submit">Tambah</button>
+      
+    </div>  
     </div>
     
+    </div>
+    </div>
+
   </form>
   
 </div>
