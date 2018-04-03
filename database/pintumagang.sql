@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2018 at 08:07 AM
+-- Generation Time: Apr 03, 2018 at 09:49 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -611,6 +611,13 @@ CREATE TABLE `mahasiswa` (
   `hp` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `mahasiswa`
+--
+
+INSERT INTO `mahasiswa` (`id_mhs`, `id_user`, `nama_depan`, `nama_belakang`, `perguruan_tinggi`, `hp`) VALUES
+(1, 16, 'Sulaiman', 'Osman', 'Institut Teknologi Sumatera', '082395149155');
+
 -- --------------------------------------------------------
 
 --
@@ -630,6 +637,7 @@ CREATE TABLE `pelamar` (
 --
 
 CREATE TABLE `perusahaan` (
+  `id_user` int(100) NOT NULL,
   `id_perusahaan` int(100) NOT NULL,
   `logo` varchar(100) NOT NULL,
   `nama_perusahaan` varchar(50) NOT NULL,
@@ -769,6 +777,13 @@ ALTER TABLE `pelamar`
   ADD PRIMARY KEY (`id_pelamar`);
 
 --
+-- Indexes for table `perusahaan`
+--
+ALTER TABLE `perusahaan`
+  ADD PRIMARY KEY (`id_perusahaan`),
+  ADD KEY `id_user` (`id_user`);
+
+--
 -- Indexes for table `provinsi`
 --
 ALTER TABLE `provinsi`
@@ -800,7 +815,7 @@ ALTER TABLE `lowongan`
 -- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id_mhs` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_mhs` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pelamar`
@@ -829,6 +844,12 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `mahasiswa`
   ADD CONSTRAINT `mahasiswa_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `perusahaan`
+--
+ALTER TABLE `perusahaan`
+  ADD CONSTRAINT `perusahaan_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
