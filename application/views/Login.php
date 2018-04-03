@@ -74,7 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <h6>Lupa Password?</h6>
 						</a>
                         <br>
-                        <a class="txt1" href="<?php echo site_url ('Perusahaan/register') ?>">
+                        <a class="txt1" href="<?php echo site_url ('Perusahaan/view_register') ?>">
                             <h6>Daftar?</h6>
                         </a>
                     </div>

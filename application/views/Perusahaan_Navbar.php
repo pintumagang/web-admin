@@ -1,0 +1,6 @@
+<div class="list-group">
+    <a <?php if(@$_GET['module'] == 'BerandaPerusahaan' || @$_GET['module'] == Null ) { ?> class='list-group-item active' <?php } ?>  href="<?php echo site_url('Perusahaan/View_Beranda')?>?module=BerandaPerusahaan" class="list-group-item "><i class="fa fa-home tab10" aria-hidden="true"></i> Beranda</a>
+    <a <?php if(@$_GET['module'] == 'EditProfil') { ?> class='list-group-item active' <?php } ?> href="<?php echo site_url('Perusahaan/View_EditProfil')?>?module=EditProfil" class="list-group-item "><i class="fa fa-plus-circle tab10" aria-hidden="true"></i> Edit Profil</a>
+    <a <?php if(@$_GET['module'] == 'Pendaftar') { ?> class='list-group-item active' <?php } ?> href="<?php echo site_url('Perusahaan/View_Pendaftar')?>?module=Pendaftar" class="list-group-item "><i class="fa fa-file-o tab10" aria-hidden="true"></i> Pendaftar</a>
+    <a <?php if(@$_GET['module'] == 'TambahLowongan') { ?> class='list-group-item active' <?php } ?> href="<?php echo site_url('Perusahaan/View_TambahLowongan')?>?module=TambahLowongan" class="list-group-item "><i class="fa fa-file-text-o tab10" aria-hidden="true"></i> Tambah Lowongan</a>
+</div>
