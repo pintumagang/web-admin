@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2018 at 09:12 AM
+-- Generation Time: Apr 03, 2018 at 08:07 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -32,17 +32,17 @@ CREATE TABLE `admin` (
   `id_admin` int(100) NOT NULL,
   `id_user` int(100) NOT NULL,
   `nama` varchar(25) NOT NULL,
-  `email` varchar(25) NOT NULL
+  `phone` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id_admin`, `id_user`, `nama`, `email`) VALUES
-(1, 16, 'Sulaiman Osman', 'sulos@gmail.com'),
-(2, 17, 'gisel', 'gisel@gmail.com'),
-(3, 19, 'M.Kamaludin Akbar', 'Kamal@gmail.com');
+INSERT INTO `admin` (`id_admin`, `id_user`, `nama`, `phone`) VALUES
+(1, 16, 'Sulaiman ', 0),
+(2, 17, 'gisel', 0),
+(3, 19, 'M.Kamaludin Akbar', 0);
 
 -- --------------------------------------------------------
 
@@ -584,14 +584,16 @@ INSERT INTO `kabupaten_kota` (`id_kabkot`, `id_provinsi`, `nama_kabkot`) VALUES
 
 CREATE TABLE `lowongan` (
   `id_lowongan` int(100) NOT NULL,
-  `namaLowongan` varchar(50) NOT NULL,
+  `nama_lowongan` varchar(50) NOT NULL,
   `id_prodi` varchar(10) NOT NULL,
   `deskripsi` varchar(100) NOT NULL,
   `id_perusahaan` int(100) NOT NULL,
   `status` varchar(10) NOT NULL,
   `waktu_input` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `dateline_submit` date NOT NULL,
-  `jenis_magang` varchar(30) NOT NULL
+  `jenis_magang` varchar(30) NOT NULL,
+  `lokasi` varchar(50) NOT NULL,
+  `cv` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -606,7 +608,6 @@ CREATE TABLE `mahasiswa` (
   `nama_depan` varchar(25) NOT NULL,
   `nama_belakang` varchar(30) DEFAULT NULL,
   `perguruan_tinggi` varchar(100) DEFAULT NULL,
-  `cv` varchar(25) DEFAULT NULL,
   `hp` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -714,19 +715,22 @@ INSERT INTO `provinsi` (`id_provinsi`, `nama_provinsi`) VALUES
 CREATE TABLE `user` (
   `id_user` int(100) NOT NULL,
   `username` varchar(25) NOT NULL,
+  `email_user` varchar(50) NOT NULL,
   `password` varchar(32) NOT NULL,
   `status` varchar(1) NOT NULL,
-  `last_login` datetime DEFAULT CURRENT_TIMESTAMP
+  `last_login` datetime DEFAULT CURRENT_TIMESTAMP,
+  `ip_address` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `username`, `password`, `status`, `last_login`) VALUES
-(16, 'sulos', '82b34daa446694d76885ddcd573f02b0', 'A', '2018-03-07 11:43:01'),
-(17, 'gisel', '0983d8c82bc2adab72a528d1b4a3577e', 'A', '2018-03-07 11:47:57'),
-(19, 'kamal', 'aa63b0d5d950361c05012235ab520512', 'A', '0000-00-00 00:00:00');
+INSERT INTO `user` (`id_user`, `username`, `email_user`, `password`, `status`, `last_login`, `ip_address`) VALUES
+(16, 'sulos', '', '82b34daa446694d76885ddcd573f02b0', 'A', '2018-03-07 11:43:01', ''),
+(17, 'gisel', '', '0983d8c82bc2adab72a528d1b4a3577e', 'A', '2018-03-07 11:47:57', ''),
+(19, 'kamal', '', 'aa63b0d5d950361c05012235ab520512', 'A', '0000-00-00 00:00:00', ''),
+(20, 'ilham', '', 'b63d204bf086017e34d8bd27ab969f28', 'P', '2018-03-28 02:18:22', '');
 
 --
 -- Indexes for dumped tables
@@ -808,7 +812,7 @@ ALTER TABLE `pelamar`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_user` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Constraints for dumped tables
