@@ -45,25 +45,25 @@
         <h3 class="well">Form pendaftaran Perusahaan</h3>
         <br>
         <div class="row">
-            <form>
+            <form method="POST" action="<?php echo site_url('Perusahaan/register') ?>?module=BerandaPerusahaan">
                 <div class="col-sm-12">
                     <div class="row">
                         <div class="col-sm-6 form-group">
                             <label>Nama Perusahaan</label>
-                            <input type="text" placeholder="" class="form-control">
+                            <input name="nama_perusahaan" type="text" placeholder="input nama perusahaan disini" class="form-control">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-7 form-group">
                             <label>Alamat Perusahaan</label>
-                            <input type="text" placeholder="Nama jalan" class="form-control">
+                            <input name = "nama_jalan" type="text" placeholder="Nama jalan" class="form-control">
 
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-5 form-group">
                             <label for="selectProvinsi">Provinsi</label>
-                            <select class="form-control" id="selectProvinsi">
+                            <select name = "provinsi" class="form-control" id="selectProvinsi">
                                 <option>Lampung</option>
                                 <option>Bandung</option>
                                 <option>Jakarta Selatan</option>
@@ -74,7 +74,7 @@
 
                         <div class="col-sm-5 form-group">
                             <label for="selectkota">kota</label>
-                            <select class="form-control" id="selectkota">
+                            <select name = "kota" class="form-control" id="selectkota">
                                 <option>Bandar Lampung</option>
                                 <option>Bandung</option>
                                 <option>Jakarta Selatan</option>
@@ -84,11 +84,11 @@
                         </div>
                         <div class="col-sm-5 form-group">
                             <label>Negara</label>
-                            <input type="text" placeholder="Input Negara disini..." class="form-control">
+                            <input name ="negara" type="text" placeholder="Input Negara disini..." class="form-control">
                         </div>
                         <div class="col-sm-5 form-group">
                             <label>kode pos</label>
-                            <input type="text" placeholder="Input Negara disini" class="form-control">
+                            <input name="kode_pos" type="text" placeholder="Input Kode Pos" class="form-control">
                         </div>
                     </div>
                     <!--
@@ -106,21 +106,35 @@
                     <div class="row">
                         <div class="col-sm-4 form-group">
                             <label>Phone Number</label>
-                            <input type="text" placeholder="Enter Phone Number Here.." class="form-control">
+                            <input name="no_tlp" type="text" placeholder="Enter Phone Number Here.." class="form-control">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-sm-4 form-group">
                             <label>Email Address</label>
-                            <input type="text" placeholder="Enter Email Address Here.." class="form-control">
+                            <input name ="email_daftar" type="text" placeholder="Enter Email Address Here.." class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4 form-group">
+                            <label>Username</label>
+                            <input name = "username_daftar"type="text" placeholder="Enter Email Address Here.." class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4 form-group">
+                            <label>Password</label>
+                            <input name="password_daftar" type="password" placeholder="Enter Email Address Here.." class="form-control">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-sm-6 form-group">
                             <label for="exampleFormControlSelect2">Industri</label>
-                            <select class="form-control" id="exampleFormControlSelect2">
+                            <select name ="jenis_industri" class="form-control" id="exampleFormControlSelect2">
                                 <option>Kesehatan</option>
                                 <option>keuangan</option>
                                 <option>Pertanian</option>
@@ -133,10 +147,16 @@
                     <div class="row">
                         <div class="col-sm-6 form-group">
                             <label>Website</label>
-                            <input type="text" placeholder="Enter Website Name Here.." class="form-control">
+                            <input name="website" type="text" placeholder="Enter Website Name Here.." class="form-control">
                         </div>
                     </div>
-                    <button type="button" class="btn btn-lg btn-info">Submit</button>
+
+
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            Login
+                        </button>
+                    </div>
                 </div>
 
                 <div class="text-center p-t-90">
