@@ -30,7 +30,7 @@ class User extends CI_Controller {
 			if($cek['status']== 'A'){
 
 				$select = $this->db->get_where('admin', array('id_user' => $cek['id_user']))->row();
-				$data = array('logged_in' => true ,
+				$data = array('logged_in' => true,
 							  'loger' => $select->nama,
                                 'status'=>$cek['status']);
 				$sql = "update user set last_login = ";

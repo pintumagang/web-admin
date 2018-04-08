@@ -18,20 +18,19 @@
             <tbody>
 
       <?php 
-      $no = 1;
       foreach ($admin as $ad) {
       ?>
 
       <tr>
-        <td><?php echo $ad->id_admin ?></td>
-        <td><?php echo $ad->nama;?></td>
-        <td><?php echo $ad->email_user;?></td>
+        <td><?php echo $ad->id_user ?></td>
+        <td><?php echo $ad->nama?></td>
+        <td><?php echo $ad->email_user?></td>
         <td><?php echo $ad->username?></td>
         <td><?php echo $ad->last_login?></td> 
         <td>
 
           <button type="button" class="btn btn-default">
-              <i class="glyphicon glyphicon-pencil"><a href="<?php echo site_url('Admin/EditDataAdmin')?>?module=formadmin">Edit</a></i>
+              <i class="glyphicon glyphicon-pencil"><a href="<?php echo site_url('Admin/EditDataAdmin')?>">Edit</a></i>
           </button> 
           
           <button type="button" class="btn btn-default">

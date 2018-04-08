@@ -3,30 +3,37 @@
 class Model_Admin extends CI_Model {
 
 		public function tampiltableadmin(){
-			$this->db->order_by("id_admin","desc");
 			$sql = "select a.id_user, a.id_admin, a.nama, b.email_user, b.username, b.last_login from admin a, user b where a.id_user = b.id_user";
 			return $this->db->query($sql);
 		}
 
-		public function tampiltableuser(){
-			return $this->db->get('user');
+		public function tampiltablemahasiswa(){
+			$sql = "select a.id_user, a.id_mhs, a.nama_depan, a.nama_belakang, a.perguruan_tinggi, a.hp , b.email_user, b.username, b.last_login from mahasiswa a, user b where a.id_user = b.id_user";
+			return $this->db->query($sql);
 		}
 
-		public function createadmin(){
-			$this->db->insert("admin",array("nama"=>"", "email"=>""));
-			$this->db->insert("user",array("username"=>""));
-			return $this->db->insert_id();
+		public function tambahmahasiswa($table, $data)
+			{
+				$tambah = $this->db->insert($table,$data);
+				return $tambah;
 		}
 
-		public function updateadmin($id_admin,$value,$modul){
-			$this->db->order_by("id_admin","desc");
-			$this->db->where(array("id_admin"=>$id_admin));
-			$this->db->update("admin",array($modul=>$value));
+		public function hapusDatauser($table_name,$id){
+				$this->db->where('id_user',$id);
+				$hapus = $this->db->delete($table_name);
+				return $hapus;
 		}
 
-		public function delete($id){
-			$this->db->where("id_admin",$id);
-			$this->db->delete("admin");
+		public function hapusDatamahasiswa($table_name,$id){
+				$this->db->where('id_user',$id);
+				$hapus = $this->db->delete($table_name);
+				return $hapus;
+		}
+		
+		public function DataEditMahasiswa($id){
+			$this->db->where('id_user',$id);
+				$sql = "select a.id_user, a.id_mhs, a.nama_depan, a.nama_belakang, a.perguruan_tinggi, a.hp , b.email_user, b.username, b.last_login from mahasiswa a, user b where a.id_user = b.id_user";
+			return $this->db->query($sql);
 		}
 }
 
