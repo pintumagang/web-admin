@@ -7,9 +7,9 @@ if (isset($_GET['module']))
         include "Perusahaan_Beranda.php";
     }elseif($mod=='EditProfil'){
         include "Perusahaan_EditProfil.php";
-    } elseif($mod='Pendaftar') {
+    } elseif($mod=='Pendaftar') {
         include "Perusahaan_Pendaftar.php";
-    } elseif($mod='TambahLowongan') {
+    } elseif($mod=='TambahLowongan') {
         include "Perusahaan_TambahLowongan.php";
     }
 } else {

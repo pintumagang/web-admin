@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/Admin_Mahasiswa_Popup_create.css'); ?>">
 <div class="judul">
     <h3 align="center">Data Administrator</h3>
 </div>

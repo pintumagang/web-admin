@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="container-login100" style="background-image: url('<?=base_url();?>assets/images/bg-01.jpg');">
 			<div class="wrap-login100">
 
-				<form class="login100-form validate-form" action="<?php echo site_url ('User/login') ?>?module=Beranda" method="POST">
+				<form class="login100-form validate-form" action="<?php echo site_url ('User/login') ?>" method="POST">
 					<span class="login100-form-logo">
 						<i class="zmdi zmdi-landscape"></i>
 					</span>

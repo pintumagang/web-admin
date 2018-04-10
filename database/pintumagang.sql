@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2018 at 09:49 AM
+-- Generation Time: Apr 11, 2018 at 01:31 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -32,7 +32,7 @@ CREATE TABLE `admin` (
   `id_admin` int(100) NOT NULL,
   `id_user` int(100) NOT NULL,
   `nama` varchar(25) NOT NULL,
-  `phone` int(11) NOT NULL
+  `phone` int(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -40,8 +40,6 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `id_user`, `nama`, `phone`) VALUES
-(1, 16, 'Sulaiman ', 0),
-(2, 17, 'gisel', 0),
 (3, 19, 'M.Kamaludin Akbar', 0);
 
 -- --------------------------------------------------------
@@ -592,8 +590,7 @@ CREATE TABLE `lowongan` (
   `waktu_input` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `dateline_submit` date NOT NULL,
   `jenis_magang` varchar(30) NOT NULL,
-  `lokasi` varchar(50) NOT NULL,
-  `cv` longblob NOT NULL
+  `lokasi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -616,7 +613,7 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`id_mhs`, `id_user`, `nama_depan`, `nama_belakang`, `perguruan_tinggi`, `hp`) VALUES
-(1, 16, 'Sulaiman', 'Osman', 'Institut Teknologi Sumatera', '082395149155');
+(7, 25, 'dekuy', 'bokuy', 'ptn456789-0', '456');
 
 -- --------------------------------------------------------
 
@@ -627,7 +624,8 @@ INSERT INTO `mahasiswa` (`id_mhs`, `id_user`, `nama_depan`, `nama_belakang`, `pe
 CREATE TABLE `pelamar` (
   `id_pelamar` int(11) NOT NULL,
   `id_mhs` int(11) NOT NULL,
-  `id_lowongan` int(11) NOT NULL
+  `id_lowongan` int(11) NOT NULL,
+  `cv` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -651,6 +649,13 @@ CREATE TABLE `perusahaan` (
   `id_kota` varchar(50) NOT NULL,
   `kodepos` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `perusahaan`
+--
+
+INSERT INTO `perusahaan` (`id_user`, `id_perusahaan`, `logo`, `nama_perusahaan`, `alamat_perusahaan`, `deskripsi`, `id_industri`, `status`, `email`, `link_website`, `id_provinsi`, `id_kota`, `kodepos`) VALUES
+(20, 1, '', 'hjkfghj', 'fghj', 'dyfghl.ksmfnvhuab', 'ugauyg', 'Valid', '34567nmz', 'eikn bnv', 'bkck', 'kksds', 76738);
 
 -- --------------------------------------------------------
 
@@ -735,10 +740,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `email_user`, `password`, `status`, `last_login`, `ip_address`) VALUES
-(16, 'sulos', '', '82b34daa446694d76885ddcd573f02b0', 'A', '2018-03-07 11:43:01', ''),
-(17, 'gisel', '', '0983d8c82bc2adab72a528d1b4a3577e', 'A', '2018-03-07 11:47:57', ''),
 (19, 'kamal', '', 'aa63b0d5d950361c05012235ab520512', 'A', '0000-00-00 00:00:00', ''),
-(20, 'ilham', '', 'b63d204bf086017e34d8bd27ab969f28', 'P', '2018-03-28 02:18:22', '');
+(20, 'ilham', '', 'b63d204bf086017e34d8bd27ab969f28', 'P', '2018-03-28 02:18:22', ''),
+(25, 'dekuu', 'shuua@gmail.com', '123r', '', '2018-04-09 01:29:43', '');
 
 --
 -- Indexes for dumped tables
@@ -815,7 +819,7 @@ ALTER TABLE `lowongan`
 -- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id_mhs` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_mhs` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `pelamar`
@@ -824,10 +828,16 @@ ALTER TABLE `pelamar`
   MODIFY `id_pelamar` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `perusahaan`
+--
+ALTER TABLE `perusahaan`
+  MODIFY `id_perusahaan` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_user` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Constraints for dumped tables
