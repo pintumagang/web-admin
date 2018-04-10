@@ -79,6 +79,7 @@ class Admin extends User {
 		$ptn 			=$_POST['ptn'];
 		$hp 			=$_POST['hp'];
 		$psw 			=$_POST['psw'];
+		$psw = md5($psw); 
 		$data1 = array(
 				'username' 			=> $username,
 				'email_user' 		=> $email_u,
@@ -110,6 +111,7 @@ class Admin extends User {
 		$ptn 			=$_POST['ptn'];
 		$hp 			=$_POST['hp'];
 		$psw 			=$_POST['psw'];
+		$psw = md5($psw); 
 		$data1 = array(
 				'username' 			=> $username,
 				'email_user' 		=> $email_u,
