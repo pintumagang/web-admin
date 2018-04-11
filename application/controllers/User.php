@@ -38,6 +38,9 @@ class User extends CI_Controller {
 				$_SESSION['user'] = $data['loger'];
 				$_SESSION['logged_in'] = $data['logged_in'];
 
+				$now = date('Y-m-d H:i:s');
+				$this->Model_Login->Lastlogin($cek['id_user'],$now);
+
 				$this->load->view('Admin_Home');
 
 			} else if ($cek['status']== 'P') {
