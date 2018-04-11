@@ -29,12 +29,12 @@
 
       <tr>
         <td><?php echo $phs->id_perusahaan?></td>
-        <td><?php echo $phs->nama_perushaan?></td>
+        <td><?php echo $phs->nama_perusahaan?></td>
         <td><?php echo $phs->username?></td>
         <td><?php echo $phs->email_user?></td>
         <td><?php echo $phs->link_website?></td>
         <td><?php echo $phs->alamat_perusahaan?></td>
-        <td><?php echo $phs->deksripsi?></td>
+        <td><?php echo $phs->deskripsi?></td>
         <td><?php echo $phs->status?></td>
         <td><?php echo $phs->last_login?></td> 
         <td>
@@ -56,7 +56,7 @@
                 <div class="col-md-2">
               <div class="container">
                 <input class="form-create" type="text" placeholder="Username" name="uname" value="<?php echo $phs->username?>"><br>
-                <input class="form-create" type="text" placeholder="Nama Perusahaan" name="nama_phs" value="<?php echo $phs->nama_depan?>"><br>
+                <input class="form-create" type="text" placeholder="Nama Perusahaan" name="nama_phs" value="<?php echo $phs->nama_perusahaan?>"><br>
                 <input class="form-create" type="text" placeholder="Email" name="email_u" value="<?php echo $phs->email_user?>" ><br>
                 <input class="form-create" type="text" placeholder="Website" name="web" value="<?php echo $phs->link_website?>" ><br>
                 <input class="form-create" type="text" placeholder="Alamat" name="almt" value="<?php echo $phs->alamat_perusahaan?>" ><br>

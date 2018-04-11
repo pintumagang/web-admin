@@ -105,3 +105,14 @@ h3{
 #myTable{
     font-size: 12px;
 }
+
+table {
+  table-layout:fixed;
+}
+table td {
+  word-wrap: break-word;
+  max-width: 400px;
+}
+#example td {
+  white-space:inherit;
+}
