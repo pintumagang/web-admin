@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/Admin_Mahasiswa_Popup_create.css'); ?>">
 <div class="judul">
     <h3 align="center">Data User Mahasiswa</h3>
 </div>
@@ -55,7 +54,7 @@
                 <input class="form-create" type="text" placeholder="Email" name="email_u" value="<?php echo $mhs->email_user?>" ><br>
                 <input class="form-create" type="text" placeholder="Perguruan Tinggi" name="ptn" value="<?php echo $mhs->perguruan_tinggi?>" ><br>
                 <input class="form-create" type="text" placeholder="Nomor Hp" name="hp" value="<?php echo $mhs->hp?>" ><br>      
-                <button id="btn2" class="form-button" type="button" onclick="window.top.close();" value="Close [x]">Batalkan</button>
+                <button id="btn2" class="form-button" type="button" onclick="document.getElementById('modal-wrapper-edit').style.display='none'" class="close" title="Close PopUp">Batalkan</button>
                 <button id="btn1" class="form-button" type="submit">Update</button>
                 
               </div>  
