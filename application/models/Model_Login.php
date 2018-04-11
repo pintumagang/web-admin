@@ -15,6 +15,11 @@ class Model_Login extends CI_Model {
         return $this->db->get('user')->row_array();
     }
 
+    public function Lastlogin($id,$now){
+    	//$this->db->where('id_user',$id);
+       	$sql = "update user set last_login = CURRENT_TIMESTAMP() where id_user = '$id' ;";
+      	$this->db->query($sql);
+    }
 
 	/*public function Set_id($user_name){
 		$this->db->where('username',$user_name);
@@ -32,3 +37,4 @@ class Model_Login extends CI_Model {
 
 
 }
+?>

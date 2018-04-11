@@ -4,6 +4,7 @@
 <div id="toolbar" class="btn-group">
 </div>
 
+<div style="overflow-y:hidden;overflow-x:scroll;" >
 <table id="myTable" class="table table-striped table-bordered table-hover">
      <thead>
       <tr>
@@ -118,6 +119,7 @@
   
 </div>
 
+</div>
 <script>
 // If user clicks anywhere outside of the modal, Modal will close
 

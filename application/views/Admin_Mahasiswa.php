@@ -3,12 +3,13 @@
 </div>
 <div id="toolbar" class="btn-group">
 </div>
-
+<div style="overflow-y:hidden;overflow-x:scroll;" >
 <table id="myTable" class="table table-striped table-bordered table-hover">
      <thead>
       <tr>
         <th>No</th>
         <th>Nama Mahasiswa</th>
+        <th>Username</th>
         <th>Email</th>
         <th>Perguruan Tinggi</th>
         <th>No. Hp</th>
@@ -26,16 +27,16 @@
       <tr>
         <td><?php echo $mhs->id_mhs?></td>
         <td><?php echo $mhs->nama_depan," ",$mhs->nama_belakang?></td>
+        <td><?php echo $mhs->username?></td>
         <td><?php echo $mhs->email_user?></td>
         <td><?php echo $mhs->perguruan_tinggi?></td>
         <td><?php echo $mhs->hp?></td>
         <td><?php echo $mhs->last_login?></td> 
         <td>
-
+        
           <button onclick="document.getElementById('modal-wrapper-edit').style.display='block'" type="button" class="btn btn-default Tambah" >
               <i class="glyphicon glyphicon-pencil">Edit</i>
           </button>
-
 
           <div id="modal-wrapper-edit" class="modal">
 
@@ -43,7 +44,7 @@
                   
               <div class="imgcontainer">
                 <span onclick="document.getElementById('modal-wrapper-edit').style.display='none'" class="close" title="Close PopUp">&times;</span>
-                <h3 style="text-align:center">Edit Mahasiswa</h3>
+                <h3 style="text-align:center"><?php echo $mhs->id_user?></h3>
               </div>
               <div class="row">
                 <div class="col-md-2">
@@ -54,13 +55,12 @@
                 <input class="form-create" type="text" placeholder="Email" name="email_u" value="<?php echo $mhs->email_user?>" ><br>
                 <input class="form-create" type="text" placeholder="Perguruan Tinggi" name="ptn" value="<?php echo $mhs->perguruan_tinggi?>" ><br>
                 <input class="form-create" type="text" placeholder="Nomor Hp" name="hp" value="<?php echo $mhs->hp?>" ><br>      
-                <button id="btn2" class="form-button" type="button" onclick="document.getElementById('modal-wrapper-edit').style.display='none'" class="close" title="Close PopUp">Batalkan</button>
+                <button id="btn2" class="form-button" type="button">Batalkan</button>
                 <button id="btn1" class="form-button" type="submit">Update</button>
                 
               </div>  
               </div>
               
-              </div>
               </div>
 
             </form>
@@ -79,6 +79,7 @@
      
       </tbody>
     </table>
+  </div>  
 
 <div id="modal-wrapper" class="modal">
 
