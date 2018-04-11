@@ -45,7 +45,7 @@
         <h3 class="well">Form pendaftaran Perusahaan</h3>
         <br>
         <div class="row">
-            <form method="POST" action="<?php echo site_url('Perusahaan/register') ?>?module=BerandaPerusahaan">
+            <form method="POST" action="<?php echo site_url('Perusahaan/register')?>>
                 <div class="col-sm-12">
                     <div class="row">
                         <div class="col-sm-6 form-group">
@@ -153,8 +153,8 @@
 
 
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
-                            Login
+                        <button class="login100-form-btn" >
+                            Register
                         </button>
                     </div>
                 </div>
