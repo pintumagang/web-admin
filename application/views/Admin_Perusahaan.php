@@ -4,7 +4,6 @@
 <div id="toolbar" class="btn-group">
 </div>
 
-<div style="overflow-y:hidden;overflow-x:scroll;" >
 <table id="myTable" class="table table-striped table-bordered table-hover">
      <thead>
       <tr>
@@ -18,50 +17,80 @@
         <th>Status</th>
         <th>Last Login</th>
         <th><button onclick="document.getElementById('modal-wrapper').style.display='block'" type="button" class="btn btn-default Tambah">
-        <i class="glyphicon glyphicon-plus">Tambah</i>
+        <i class="glyphicon glyphicon-plus">Tambah  </i>
     </button></th>
       </tr>
       </thead>
             <tbody>
      <?php 
       foreach ($perusahaan as $phs) {
-      ?>
+      $id_user      = $phs['id_user'];
+      $id_perusahaan = $phs['id_perusahaan'];
+      $nama_perusahaan  = $phs['nama_perusahaan'];
+      $username = $phs['username'];
+      $email_user = $phs['email_user'];
+      $link_website = $phs['link_website'];
+      $alamat_perusahaan = $phs['alamat_perusahaan'];
+      $deskripsi = $phs['deskripsi'];
+      $status = $phs['status'];
+      $last_login = $phs['last_login'];
 
+      echo "
       <tr>
-        <td><?php echo $phs->id_perusahaan?></td>
-        <td><?php echo $phs->nama_perusahaan?></td>
-        <td><?php echo $phs->username?></td>
-        <td><?php echo $phs->email_user?></td>
-        <td><?php echo $phs->link_website?></td>
-        <td><?php echo $phs->alamat_perusahaan?></td>
-        <td><?php echo $phs->deskripsi?></td>
-        <td><?php echo $phs->status?></td>
-        <td><?php echo $phs->last_login?></td> 
-        <td>
+        <td>$id_perusahaan</td>
+        <td>$nama_perusahaan</td>
+        <td>$username</td>
+        <td>$email_user</td>
+        <td>$link_website</td>
+        <td>$alamat_perusahaan</td>
+        <td>$deskripsi</td>
+        <td>$status</td>
+        <td>$last_login</td> 
+        <td> ";
+        ?>
 
-          <button onclick="document.getElementById('modal-wrapper-edit').style.display='block'" type="button" class="btn btn-default Tambah" >
-              <i class="glyphicon glyphicon-pencil">Edit</i>
+
+        <?php 
+
+            if($status == 'Tidak Valid'){
+              ?>
+              <a href="<?php echo site_url('Admin/validasiperusahaan/'.$id_user)?>" >
+              <button onclick="return confirm ('Validasi Perusahaan?')" type="button" class="btn btn-default">
+                  <i class="glyphicon glyphicon-ok"></i>
+              </button></a>
+        <?php  
+            } else {
+              ?>
+              <a href="<?php echo site_url('Admin/batalvalidasiperusahaan/'.$id_user)?>" >
+              <button onclick="return confirm ('Batalkan Validasi Perusahaan?')" type="button" class="btn btn-default">
+                  <i class="glyphicon glyphicon-ban-circle"></i>
+              </button></a>
+        <?php      
+            }
+        ?>
+
+          <button onclick="document.getElementById('modal-wrapper-edit<?php echo $id_user?>').style.display='block'" type="button" class="btn btn-default Tambah" value="<?php echo $id_user?>" >
+              <i class="glyphicon glyphicon-pencil"></i>
           </button>
 
+          <div id="modal-wrapper-edit<?php echo $id_user?>" class="modal">
 
-          <div id="modal-wrapper-edit" class="modal">
-
-            <form class="modal-content animate" action="<?php echo site_url('Admin/editperusahaan/'.$phs->id_user)?>" method="POST">
+            <form class="modal-content animate" action="<?php echo site_url('Admin/editperusahaan/'.$id_user)?>" method="POST">
                   
               <div class="imgcontainer">
-                <span onclick="document.getElementById('modal-wrapper-edit').style.display='none'" class="close" title="Close PopUp">&times;</span>
+                <span onclick="document.getElementById('modal-wrapper-edit<?php echo $id_user?>').style.display='none'" class="close" title="Close PopUp">&times;</span>
                 <h3 style="text-align:center">Edit Perusahaan</h3>
               </div>
               <div class="row">
                 <div class="col-md-2">
               <div class="container">
-                <input class="form-create" type="text" placeholder="Username" name="uname" value="<?php echo $phs->username?>"><br>
-                <input class="form-create" type="text" placeholder="Nama Perusahaan" name="nama_phs" value="<?php echo $phs->nama_perusahaan?>"><br>
-                <input class="form-create" type="text" placeholder="Email" name="email_u" value="<?php echo $phs->email_user?>" ><br>
-                <input class="form-create" type="text" placeholder="Website" name="web" value="<?php echo $phs->link_website?>" ><br>
-                <input class="form-create" type="text" placeholder="Alamat" name="almt" value="<?php echo $phs->alamat_perusahaan?>" ><br>
-                <input class="form-create" type="text area" placeholder="Deksripsi" name="deks" value="<?php echo $phs->deskripsi?>" ><br>
-                <input class="form-create" type="text" placeholder="Status" name="status" value="<?php echo $phs->status?>" ><br>      
+                <input class="form-create" type="text" placeholder="Username" name="uname" value="<?php echo $username?>"><br>
+                <input class="form-create" type="text" placeholder="Nama Perusahaan" name="nama_phs" value="<?php echo $nama_perusahaan?>"><br>
+                <input class="form-create" type="text" placeholder="Email" name="email_u" value="<?php echo $email_user?>" ><br>
+                <input class="form-create" type="text" placeholder="Website" name="web" value="<?php echo $link_website?>" ><br>
+                <input class="form-create" type="text" placeholder="Alamat" name="almt" value="<?php echo $alamat_perusahaan?>" ><br>
+                <input class="form-create" type="text area" placeholder="Deksripsi" name="deks" value="<?php echo $deskripsi?>" ><br>
+                <!--<input class="form-create" type="text" placeholder="Status" name="status" value="<?php echo $status?>" ><br>      -->
                 <button id="btn2" class="form-button" type="button" onclick="window.top.close();" value="Close [x]">Batalkan</button>
                 <button id="btn1" class="form-button" type="submit">Update</button>
                 
@@ -75,9 +104,9 @@
             
           </div>   
 
-          <a href="<?php echo site_url('Admin/deleteperusahaan/'.$phs->id_user)?>" >
+          <a href="<?php echo site_url('Admin/deleteperusahaan/'.$id_user)?>" >
           <button onclick="return confirm ('Apakah anda yakin?')" type="button" class="btn btn-default">
-              <i class="glyphicon glyphicon-trash">Hapus</i>
+              <i class="glyphicon glyphicon-trash"></i>
           </button></a>
           
         </td>
@@ -105,7 +134,8 @@
                 <input class="form-create" type="text" placeholder="Website" name="web"><br>
                 <input class="form-create" type="text" placeholder="Alamat" name="almt"><br>
                 <input class="form-create" type="text area" placeholder="Deksripsi" name="deks"><br>
-                <input class="form-create" type="text" placeholder="Status" name="status"><br>      
+                <input class="form-create" type="text" placeholder="Status" name="status"><br>
+                <input class="form-create" type="password" placeholder="Password" name="psw"><br>        
                 <button id="btn2" class="form-button" type="button" onclick="window.top.close();" value="Close [x]">Batalkan</button>
                 <button id="btn1" class="form-button" type="submit">Tambah</button>
       
@@ -118,8 +148,6 @@
   </form>
   
 </div>
-
-</div>
 <script>
 // If user clicks anywhere outside of the modal, Modal will close
 
@@ -129,7 +157,7 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-var modal = document.getElementById('modal-wrapper-edit');
+var modal = document.getElementById('modal-wrapper-edit<?php echo $id_user?>');
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";

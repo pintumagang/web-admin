@@ -23,20 +23,20 @@ class Admin extends User {
 
 	public function View_Admin()
 	{
-		$dataadmin['admin']	= $this->Model_Admin->tampiltableadmin()->result();
+		$dataadmin['admin']	= $this->Model_Admin->tampiltableadmin()->result_array();
 		$this->load->view('Admin_Home', $dataadmin);
 	} 
 
 	public function View_Mahasiswa()
 	{
-		$datamahasiswa['mahasiswa']	= $this->Model_Admin->tampiltablemahasiswa()->result();
+		$datamahasiswa['mahasiswa']	= $this->Model_Admin->tampiltablemahasiswa()->result_array();
 		
 		$this->load->view('Admin_Home', $datamahasiswa);
 	} 
 
 	public function View_Perusahaan()
 	{
-		$dataperusahaan['perusahaan'] = $this->Model_Admin->tampiltableperusahaan()->result();
+		$dataperusahaan['perusahaan'] = $this->Model_Admin->tampiltableperusahaan()->result_array();
 		
 		$this->load->view('Admin_Home', $dataperusahaan);
 	}
@@ -71,6 +71,10 @@ class Admin extends User {
 		}
 	}
 
+	public function validasiperusahaan($id){
+		
+	}
+
 	public function tambahmahasiswa(){
 		$username 		=$_POST['uname'];
 		$nama_dpn 		=$_POST['nama_dpn'];
@@ -79,11 +83,13 @@ class Admin extends User {
 		$ptn 			=$_POST['ptn'];
 		$hp 			=$_POST['hp'];
 		$psw 			=$_POST['psw'];
+		$stat 			= 'M';
 		$psw = md5($psw); 
 		$data1 = array(
 				'username' 			=> $username,
 				'email_user' 		=> $email_u,
 				'password'			=> $psw,
+				'status'			=> $stat,
 				);
 		$tambah1 = $this->Model_Admin->tambahmahasiswa('user',$data1);
 		$new_id = $this->db->insert_id();
@@ -105,17 +111,20 @@ class Admin extends User {
 
 		public function tambahperusahaan(){
 		$username 		=$_POST['uname'];
-		$nama_dpn 		=$_POST['nama_dpn'];
-		$nama_blkg 		=$_POST['nama_blkg'];
+		$nama_dpn 		=$_POST['nama_phs'];
+		$nama_blkg 		=$_POST['web'];
 		$email_u 		=$_POST['email_u'];
-		$ptn 			=$_POST['ptn'];
-		$hp 			=$_POST['hp'];
+		$ptn 			=$_POST['almt'];
+		$hp 			=$_POST['deks'];
+		$status			=$_POST['status'];
 		$psw 			=$_POST['psw'];
+		$stat 			= 'P';
 		$psw = md5($psw); 
 		$data1 = array(
 				'username' 			=> $username,
 				'email_user' 		=> $email_u,
 				'password'			=> $psw,
+				'status'			=> $stat,
 				);
 		$tambah1 = $this->Model_Admin->tambahmahasiswa('user',$data1);
 		$new_id = $this->db->insert_id();
@@ -127,7 +136,7 @@ class Admin extends User {
 				'hp'				=> $hp
 				);
 
-		$tambah2 = $this->Model_Admin->tambahmahasiswa('mahasiswa',$data2);
+		$tambah2 = $this->Model_Admin->tambahmahasiswa('perusahaan',$data2);
 		if( ($tambah1 + $tambah2) > 0 ){
 			redirect('Admin/View_Perusahaan?module=Perusahaan');
 		} else {
@@ -213,5 +222,8 @@ class Admin extends User {
 		}
 	}
 }
+
+
+
 
 ?>

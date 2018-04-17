@@ -3,7 +3,7 @@
 </div>
 <div id="toolbar" class="btn-group">
 </div>
-<div style="overflow-y:hidden;overflow-x:scroll;" >
+<div onload="myFunction()" style="margin:0;" style="overflow-y:hidden;overflow-x:scroll;" >
 <table id="myTable" class="table table-striped table-bordered table-hover">
      <thead>
       <tr>
@@ -22,39 +22,49 @@
             <tbody>
      <?php 
       foreach ($mahasiswa as $mhs) {
-      ?>
+        $id_user  = $mhs['id_user'];
+        $id_mhs   = $mhs['id_mhs'];
+        $nama_depan = $mhs['nama_depan'];
+        $nama_belakang = $mhs['nama_belakang'];
+        $username   = $mhs['username'];
+        $email_user  = $mhs['email_user'];
+        $perguruan_tinggi = $mhs['perguruan_tinggi'];
+        $hp = $mhs['hp'];
+        $last_login = $mhs['last_login'];
 
+      echo"
       <tr>
-        <td><?php echo $mhs->id_mhs?></td>
-        <td><?php echo $mhs->nama_depan," ",$mhs->nama_belakang?></td>
-        <td><?php echo $mhs->username?></td>
-        <td><?php echo $mhs->email_user?></td>
-        <td><?php echo $mhs->perguruan_tinggi?></td>
-        <td><?php echo $mhs->hp?></td>
-        <td><?php echo $mhs->last_login?></td> 
-        <td>
+        <td> $id_mhs </td>
+        <td> $nama_depan $nama_belakang</td>
+        <td> $username</td>
+        <td> $email_user</td>
+        <td> $perguruan_tinggi</td>
+        <td> $hp</td>
+        <td> $last_login</td> 
+        <td> ";
+        ?>
         
-          <button onclick="document.getElementById('modal-wrapper-edit').style.display='block'" type="button" class="btn btn-default Tambah" >
-              <i class="glyphicon glyphicon-pencil">Edit</i>
+          
+          <button onclick="document.getElementById('modal-wrapper-edit<?php echo $id_user?>').style.display='block'" type="button" class="btn btn-default Tambah" value="<?php echo $id_user?>" >
+              <i class="glyphicon glyphicon-pencil"></i>
           </button>
 
-          <div id="modal-wrapper-edit" class="modal">
-
-            <form class="modal-content animate" action="<?php echo site_url('Admin/editmahasiswa/'.$mhs->id_user)?>" method="POST">
+    <div id="modal-wrapper-edit<?php echo $id_user?>" class="modal">
+          <form class="modal-content animate" action="<?php echo site_url('Admin/editmahasiswa/'.$id_user)?>" method="POST">
                   
               <div class="imgcontainer">
-                <span onclick="document.getElementById('modal-wrapper-edit').style.display='none'" class="close" title="Close PopUp">&times;</span>
-                <h3 style="text-align:center"><?php echo $mhs->id_user?></h3>
+                <span onclick="document.getElementById('modal-wrapper-edit<?php echo $id_user?>').style.display='none'" class="close" title="Close PopUp">&times;</span>
+                <h3 style="text-align:center">Edit Mahasiswa</h3>
               </div>
               <div class="row">
                 <div class="col-md-2">
               <div class="container">
-                <input class="form-create" type="text" placeholder="Username" name="uname" value="<?php echo $mhs->username?>"><br>
-                <input class="form-create" type="text" placeholder="Nama depan" name="nama_dpn" value="<?php echo $mhs->nama_depan?>"><br>
-                <input class="form-create" type="text" placeholder="Nama belakang" name="nama_blkg" value="<?php echo $mhs->nama_belakang?>"><br>
-                <input class="form-create" type="text" placeholder="Email" name="email_u" value="<?php echo $mhs->email_user?>" ><br>
-                <input class="form-create" type="text" placeholder="Perguruan Tinggi" name="ptn" value="<?php echo $mhs->perguruan_tinggi?>" ><br>
-                <input class="form-create" type="text" placeholder="Nomor Hp" name="hp" value="<?php echo $mhs->hp?>" ><br>      
+                <input class="form-create" type="text" placeholder="Username" name="uname" value="<?php echo $username?>"><br>
+                <input class="form-create" type="text" placeholder="Nama depan" name="nama_dpn" value="<?php echo $nama_depan?>"><br>
+                <input class="form-create" type="text" placeholder="Nama belakang" name="nama_blkg" value="<?php echo $nama_belakang?>"><br>
+                <input class="form-create" type="text" placeholder="Email" name="email_u" value="<?php echo $email_user?>" ><br>
+                <input class="form-create" type="text" placeholder="Perguruan Tinggi" name="ptn" value="<?php echo $perguruan_tinggi?>" ><br>
+                <input class="form-create" type="text" placeholder="Nomor Hp" name="hp" value="<?php echo $hp?>" ><br>      
                 <button id="btn2" class="form-button" type="button">Batalkan</button>
                 <button id="btn1" class="form-button" type="submit">Update</button>
                 
@@ -63,19 +73,19 @@
               
               </div>
 
-            </form>
-            
-          </div>   
+            </form> 
+     </div> 
 
-          <a href="<?php echo site_url('Admin/deletemahasiswa/'.$mhs->id_user)?>" >
+          <a href="<?php echo site_url('Admin/deletemahasiswa/'.$id_user)?>" >
           <button onclick="return confirm ('Apakah anda yakin?')" type="button" class="btn btn-default">
-              <i class="glyphicon glyphicon-trash">Hapus</i>
+              <i class="glyphicon glyphicon-trash"></i>
           </button></a>
           
         </td>
        
       </tr>
-     <?php }?>
+     <?php }
+     ?>
      
       </tbody>
     </table>
@@ -112,6 +122,13 @@
   
 </div>
 
+
+
+            
+            
+         
+         
+
 <script>
 // If user clicks anywhere outside of the modal, Modal will close
 
@@ -121,10 +138,15 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-var modal = document.getElementById('modal-wrapper-edit');
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+</script>
+
+<script type="text/javascript">
+    var modal = document.getElementById('modal-wrapper-edit<?php echo $id_user?>');
+
+      window.onclick = function(event) {
+         var id = document.getElementById('edit'),
+        if (event.target == modal) {
+                 modal.style.display = "none";
+         }
+      } 
 </script>

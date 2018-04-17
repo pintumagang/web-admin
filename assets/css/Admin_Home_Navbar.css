@@ -57,3 +57,15 @@
     font-weight:bold;
     font-size:1.4em;
 }
+
+table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    table-layout: fixed;
+}
+
+tbody {
+    display: block;
+    overflow: scroll;
+}
