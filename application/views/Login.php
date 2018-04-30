@@ -56,28 +56,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 					</div>
 
-					<div class="contact100-form-checkbox">
-						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-						<label class="label-checkbox100" for="ckb1">
-							Remember me
-						</label>
-					</div>
-
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
 							Login
 						</button>
 					</div>
-
-					<div class="text-center p-t-90">
-						<a class="txt1" href="#">
-                            <h6>Lupa Password?</h6>
-						</a>
-                        <br>
-                        <a class="txt1" href="<?php echo site_url ('Perusahaan/view_register') ?>">
-                            <h6>Daftar?</h6>
-                        </a>
-                    </div>
 				</form>
 			</div>
 		</div>

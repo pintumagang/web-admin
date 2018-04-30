@@ -13,8 +13,14 @@ class Model_Admin extends CI_Model {
 		}
 
 		public function tampiltableperusahaan(){
-			$sqli = "select a.id_user, a.id_perusahaan, a.nama_perusahaan, a.alamat_perusahaan, a.deskripsi, a.link_website, a.status , b.email_user, b.username, b.last_login from perusahaan a, user b where a.id_user = b.id_user";
-			return $this->db->query($sqli);
+			//$sql ="SELECT * FROM perusahaan AS f INNER JOIN user AS d ON d.id_user = f.id_user INNER JOIN provinsi AS c ON c.id_provinsi = f.id_provinsi INNER JOIN kabupaten_kota AS n ON n.id_kota = f.id_kabkot";
+			$sql = "select a.id_user, a.id_perusahaan, a.nama_perusahaan, a.alamat_perusahaan, a.deskripsi, a.link_website, a.status, a.email , b.email_user, b.username, b.last_login from perusahaan a, user b where a.id_user = b.id_user";
+			return $this->db->query($sql);
+		}
+
+		public function tampiltablelowongan(){
+			$sql = "select a.id_lowongan, a.id_perusahaan, a.nama_lowongan, a.status, a.waktu_input, a.deadline_submit, a.jenis_magang, a.lokasi, b.nama_perusahaan from lowongan a, perusahaan b where a.id_perusahaan = b.id_perusahaan";
+			return $this->db->query($sql);
 		}
 
 		public function tambahmahasiswa($table, $data)
@@ -34,6 +40,7 @@ class Model_Admin extends CI_Model {
 				$hapus = $this->db->delete($table_name);
 				return $hapus;
 		}
+
 		
 		public function DataEditMahasiswa($id){
 			$this->db->where('id_user',$id);
@@ -48,11 +55,47 @@ class Model_Admin extends CI_Model {
 			return $edit;
 		}
 
-		public function getid_mhs($id){
+		public function verifikasiperusahaan($data,$id)
+		{
 			$this->db->where('id_user',$id);
-			$id_mhs = $this->db->select->id_mhs;
-			return $id_mhs;
+			$edit = $this->db->update('perusahaan',$data);
+			return $edit;
 		}
-}
+
+		public function aktifasilowongan($data,$id)
+		{
+			$this->db->where('id_lowongan',$id);
+			$edit = $this->db->update('lowongan',$data);
+			return $edit;
+		}
+
+		function is_email_available($email)  
+      	{  
+           $this->db->where('email_user', $email);  
+           $query = $this->db->get('user');  
+           if($query->num_rows() > 0)  
+           {  
+                return true;  
+           }  
+           else  
+           {  
+                return false;  
+           }  
+      	}
+
+      	function is_uname_available($uname) 
+      	{  
+           $this->db->where('username', $uname);  
+           $query = $this->db->get('user');  
+           if($query->num_rows() > 0)  
+           {  
+                return true;  
+           }  
+           else  
+           {  
+                return false;  
+           }  
+      	}
+    }
 
 ?>
