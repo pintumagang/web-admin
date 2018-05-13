@@ -36,8 +36,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="wrap-login100">
 
 				<form class="login100-form validate-form" action="<?php echo site_url ('User/login') ?>" method="POST">
-					<span class="login100-form-logo">
-						<i class="zmdi zmdi-landscape"></i>
+					<span class="login100-form-logo" style="background-color: #5897fb; ">
+						<img style="width: 90%; height: 90%;" src="<?php echo base_url('assets\images\pintumagang.png'); ?>"/>
 					</span>
 
 					<span class="login100-form-title p-b-34 p-t-27">

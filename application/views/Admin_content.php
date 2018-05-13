@@ -15,6 +15,10 @@ if($mod=='Beranda'){
 	include "Admin_Perusahaan.php";	
 } elseif($mod=='Lowongan') {
 	include "Admin_Lowongan.php";	
+} elseif ($mod=='Prodi'){
+	include "Admin_Prodi.php";
+} elseif($mod == 'Slider'){
+	include "Admin_Slider.php";
 }
 
 } else {

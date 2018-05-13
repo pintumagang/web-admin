@@ -4,9 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html>
 <head>
-
+  <title>Admin|PintuMagang</title>
   <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
-  <script type="text/javascript" src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <!-- Load JQuery -->
@@ -35,8 +34,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div class="container base">
-    <div>
-    <h1 align="center" >Pintu Magang</h1> 
+    <div class="row">
+          <h1 align="center" ><img style="width: 100px; height: 100px;"" src="<?php echo base_url('assets\images\pintumagang.png'); ?>"> Pintu Magang</h1>
     </div>
   <div class="row div">
     <div class="container top">
@@ -74,6 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
     </div>
   </div>
+</div>
 </div>
 
 

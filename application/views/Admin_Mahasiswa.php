@@ -261,9 +261,11 @@ $(document).ready(function() {
  <script>  
  $(document).ready(function(){  
       $('#email<?php echo $id_user?>').change(function(){  
+           var prev = this.defaultValue;
            var email = $('#email<?php echo $id_user?>').val();  
            if(email != '')  
            {  
+            if (email != prev) {
                 $.ajax({  
                      url:"<?php echo base_url();?>index.php/Admin/check_email_avalibility",  
                      method:"POST",  
@@ -274,63 +276,27 @@ $(document).ready(function() {
                             $('#email_result<?php echo $id_user?>').html(data);
                             $('#divemailluar<?php echo $id_user?>').removeClass('has-success');
                             $('#email<?php echo $id_user?>').addClass('input-error');
-                            event.preventDefault()
                           } else {
-                            $('#email_result<?php echo $id_user?>').html(data);
                             $('#email<?php echo $id_user?>').removeClass('input-error');
                             $('#email<?php echo $id_user?>').addClass('input-success');
                           }
+
                         $('#reg_form<?php echo $id_user?>').submit(function(event){
                           if(data == '<small style="color : #a94442;" data-bv-validator="stringLength" data-bv-validator-for="email" class="help-block" style="display: block;">Email telah terdaftar!</small>'){
                             event.preventDefault()
-                          } else {
-
                           }
                         });
                      } 
-                });  
+                });
+                } else if(email == prev) {
+                $('#reg_form<?php echo $id_user?>').unbind( "submit" );
+                $('#btnsubmit<?php echo $id_user?>').prop("disabled", false);
+             }  
            }  
       });  
  });  
  </script>
 
-
-<script>  
- $(document).ready(function(){  
-      $('#uname<?php echo $id_user?>').change(function(){  
-           var uname = $('#uname<?php echo $id_user?>').val();  
-           if(uname != '')  
-           {  
-                $.ajax({  
-                     url:"<?php echo base_url();?>index.php/Admin/check_uname_avalibility",  
-                     method:"POST",  
-                     data:{uname:uname},  
-                     success:function(data){   
-                          if(data == '<small style="color : #a94442;" data-bv-validator="stringLength" data-bv-validator-for="uname" class="help-block" style="display: block;">Username telah digunakan!</small>'){
-                            $('#uname_result<?php echo $id_user?>').html(data);
-                            $('#divunameluar<?php echo $id_user?>').removeClass('has-success');
-                            $('#uname<?php echo $id_user?>').addClass('input-error');
-                            e.preventDefault();
-                          } else {
-                            $('#uname_result<?php echo $id_user?>').html(data);
-                            $('#uname<?php echo $id_user?>').removeClass('input-error');
-                            $('#uname<?php echo $id_user?>').addClass('input-success');
-                            e.preventDefault();
-                          }
-                        
-                           $('#reg_form<?php echo $id_user?>').on('submit', function(e){
-                          if(data == '<small style="color : #a94442;" data-bv-validator="stringLength" data-bv-validator-for="uname" class="help-block" style="display: block;">Username telah digunakan!</small>'){
-                            e.preventDefault();
-                          } else {
-                            
-                          }
-                        });
-                     }  
-                });  
-           }  
-      });  
- });  
- </script> 
                                         
      <form class="form-horizontal bv-form" action="<?php echo site_url('Admin/editmahasiswa/'.$id_user)?>" method="post" id="reg_form<?php echo $id_user?>" novalidate="novalidate">
 
@@ -339,19 +305,6 @@ $(document).ready(function() {
       
       <!-- Form Name -->
             <legend> Edit Data Mahasiswa </legend>
-    
-      <!-- Text input-->
-       <div style="width: 100%" class="form-group has-feedback">
-        <div style="width: 100%" class="col-md-6  inputGroupContainer">
-          <div style="width: 100%;" class="input-group">
-            <input style="width: 100%;
-            margin-left: 15px;
-            border-top-right-radius: 3px; 
-            border-bottom-right-radius: 3px;" id="uname<?php echo $id_user?>" name="uname" placeholder="Username" class="form-control" type="text" data-bv-field="uname" value="<?php echo $username?>"><i class="form-control-feedback" data-bv-icon-for="uname" style="display: none;"></i>
-          </div>
-                <span id="uname_result<?php echo $id_user?>"></span>
-        </div>
-      </div>
 
 
       <div style="width: 100%" class="form-group has-feedback">
@@ -381,7 +334,7 @@ $(document).ready(function() {
 
       <!-- Text input-->
 
-      <div style="width: 100%" class="form-group has-feedback">
+      <div style="width: 100%" id="divemailluar<?php echo $id_user?>" class="form-group has-feedback">
         <div style="width: 100%" class="col-md-6  inputGroupContainer">
           <div style="width: 100%;" class="input-group">
             <input style="width: 100%;
@@ -424,7 +377,7 @@ $(document).ready(function() {
       <div  style="width: 100%" class="form-group">
         <label class="col-md-6 control-label"></label>
         <div  style="width: 100%" class="col-md-4">
-          <button style="margin-left: 45%;" type="submit" class="btn btn-primary">Simpan</button>
+          <button id="btnsubmit<?php echo $id_user?>" style="margin-left: 45%;" type="submit" class="btn btn-primary">Simpan</button>
         </div>
       </div>
     </fieldset>
@@ -577,7 +530,7 @@ $(document).ready(function() {
       <div  style="width: 100%; margin-top : 40px;" class="form-group">
         <label class="col-md-6 control-label"></label>
         <div  style="width: 100%" class="col-md-4">
-          <button style="margin-left: 45%;" type="submit" class="btn btn-primary">Tambah</button>
+          <button style="margin-left: 45%;" id="btnsubmit" type="submit" class="btn btn-primary">Tambah</button>
         </div>
       </div>
     </fieldset>
@@ -742,7 +695,9 @@ $(document).ready(function() {
                     notEmpty: {
                         message: 'Masukkan email!'
                     },
-                    
+                emailAddress: {
+                        message: 'Email tidak valid!'
+                    }
                 }
             },
 
@@ -755,7 +710,7 @@ $(document).ready(function() {
                 },
                 notEmpty: {
                         message: 'Masukkan Password!'
-                },
+                }
             }
         },
 
@@ -796,7 +751,7 @@ $(document).ready(function() {
 
 <script>  
  $(document).ready(function(){  
-      $('#emailx').change(function(){  
+      $('#emailx').change(function(){
            var email = $('#emailx').val();  
            if(email != '')  
            {  
@@ -805,27 +760,20 @@ $(document).ready(function() {
                      method:"POST",  
                      data:{email:email},  
                      success:function(data){
-                       
                           if(data == '<small style="color : #a94442;" data-bv-validator="stringLength" data-bv-validator-for="email" class="help-block" style="display: block;">Email telah terdaftar!</small>'){
                             $('#email_resultx').html(data);
                             $('#divemailluarx').removeClass('has-success');
                             $('#emailx').addClass('input-error');
-                            event.preventDefault()
+                             $("#btnsubmit").prop('disabled', true);
                           } else {
                             $('#email_resultx').html(data);
                             $('#emailx').removeClass('input-error');
                             $('#emailx').addClass('input-success');
+                            $("#btnsubmit").prop('disabled', false);
                           }
-                        $('#reg_form').submit(function(event){
-                          if(data == '<small style="color : #a94442;" data-bv-validator="stringLength" data-bv-validator-for="email" class="help-block" style="display: block;">Email telah terdaftar!</small>'){
-                            event.preventDefault()
-                          } else {
-
-                          }
-                        });
                      } 
                 });  
-           }  
+           }
       });  
  });  
  </script>
@@ -846,21 +794,15 @@ $(document).ready(function() {
                             $('#uname_resultx').html(data);
                             $('#divunameluarx').removeClass('has-success');
                             $('#unamex').addClass('input-error');
-                            e.preventDefault();
+                            $("#btnsubmit").prop('disabled', true);
                           } else {
                             $('#uname_resultx').html(data);
                             $('#unamex').removeClass('input-error');
                             $('#unamex').addClass('input-success');
-                            e.preventDefault();
+                            $("#btnsubmit").prop('disabled', false);
                           }
                         
-                           $('#reg_form').on('submit', function(e){
-                          if(data == '<small style="color : #a94442;" data-bv-validator="stringLength" data-bv-validator-for="uname" class="help-block" style="display: block;">Username telah digunakan!</small>'){
-                            e.preventDefault();
-                          } else {
-                            
-                          }
-                        });
+                        
                      }  
                 });  
            }  
